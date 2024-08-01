@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vzNPxbfHetP9NPRJaG5gO0y1irNlnIDG+5idbWwFJGg=",
+  "Source": "AttendenceTracker",
+  "BasePath": "_content/AttendenceTracker",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
