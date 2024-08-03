@@ -252,9 +252,9 @@ namespace AttendenceTracker.Controllers
 
             return Ok(result);
         }
+    
 
-
-        [HttpGet("GetByStudentIdAndStaffId/{studentId}/{StaffId}")]
+[HttpGet("GetByStudentIdAndStaffId/{studentId}/{StaffId}")]
         public async Task<ActionResult<IEnumerable<StudentCourses>>> GetStudentCoursesByStudentIdAndStaffId(int studentId, int StaffId)
         {
             var studentCourses = await _context.StudentCourses

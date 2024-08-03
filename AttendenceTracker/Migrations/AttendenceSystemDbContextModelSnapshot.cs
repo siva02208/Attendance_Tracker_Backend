@@ -181,10 +181,10 @@ namespace AttendenceTracker.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int>("StaffId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.HasKey("id");

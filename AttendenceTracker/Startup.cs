@@ -1,4 +1,6 @@
+using AttendenceTracker.Helper;
 using AttendenceTracker.Models;
+using AttendenceTracker.services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +39,12 @@ namespace AttendenceTracker
                     .AllowAnyHeader();
                 });
             });
+
+
+
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IEmailService, EmailService>();
+
             services.AddControllers();
             services.AddDbContext<AttendenceSystemDbContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 

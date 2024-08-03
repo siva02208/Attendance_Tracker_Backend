@@ -73,24 +73,19 @@ namespace AttendenceTracker.Controllers
 
         // POST: api/Leave
         [HttpPost]
-        public async Task<IActionResult> PostLeave(Leave leave)
+        public async Task<ActionResult<Leave>> PostLeave(Leave leave)
         {
-            // Check if a leave with the same studentId, FromDate, and ToDate already exists
-            var existingLeave = await _context.Leave
-                .FirstOrDefaultAsync(l => l.StudentId == leave.StudentId &&
-                                           l.FromDate == leave.FromDate &&
-                                           l.ToDate == leave.ToDate);
+            // Check if a leave with the same dates and teacher already exists
+            bool leaveExists = _context.Leave.Any(l =>
+                l.StudentId == leave.StudentId &&
+                l.TeacherId == leave.TeacherId &&
+                l.FromDate == leave.FromDate &&
+                l.ToDate == leave.ToDate);
 
-            if (existingLeave != null)
+            if (leaveExists)
             {
-                // A leave with the same details already exists, return a custom error response
-                var errorResponse = new
-                {
-                    Message = "A leave with the same details already exists.",
-                    ErrorCode = "CONFLICT" // You can use any error code you prefer
-                };
-
-                return Conflict(errorResponse);
+                // Return a conflict response with an appropriate message
+                return Conflict("Leave with the same dates and teacher already exists.");
             }
 
             _context.Leave.Add(leave);
@@ -98,6 +93,7 @@ namespace AttendenceTracker.Controllers
 
             return CreatedAtAction("GetLeave", new { id = leave.Id }, leave);
         }
+
 
 
         // DELETE: api/Leave/5
@@ -120,9 +116,6 @@ namespace AttendenceTracker.Controllers
         {
             return _context.Leave.Any(e => e.Id == id);
         }
-
-
-
 
         [HttpGet("bystudentandteacher/{studentId}/{teacherId}")]
         public async Task<ActionResult<IEnumerable<Leave>>> GetLeavesByStudentAndTeacher(int studentId, int teacherId)

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj": {}
+    "C:\\Users\\HP\\OneDrive\\Desktop\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj": {}
   },
   "projects": {
-    "E:\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj": {
+    "C:\\Users\\HP\\OneDrive\\Desktop\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\OneDrive\\Desktop\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj",
         "projectName": "AttendenceTracker",
-        "projectPath": "E:\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj",
-        "packagesPath": "C:\\Users\\My PC\\.nuget\\packages\\",
-        "outputPath": "E:\\AttendenceTracker\\AttendenceTracker\\obj\\",
+        "projectPath": "C:\\Users\\HP\\OneDrive\\Desktop\\AttendenceTracker\\AttendenceTracker\\AttendenceTracker.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\OneDrive\\Desktop\\AttendenceTracker\\AttendenceTracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\My PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.21, )"
@@ -68,6 +72,10 @@
               "target": "Package",
               "version": "[6.0.16, )"
             },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "log4net": {
               "target": "Package",
               "version": "[2.0.15, )"
@@ -92,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

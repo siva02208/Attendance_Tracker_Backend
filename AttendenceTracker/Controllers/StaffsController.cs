@@ -86,14 +86,25 @@ namespace AttendenceTracker.Controllers
         // POST: api/Staffs
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        // POST: api/Staffs
         [HttpPost]
         public async Task<ActionResult<Staff>> PostStaff(Staff staff)
         {
+            // Check if the email already exists in the database
+            var existingStaff = await _context.Staff.FirstOrDefaultAsync(x => x.Email == staff.Email);
+
+            if (existingStaff != null)
+            {
+                // Email already exists, return a 409 Conflict response
+                return Conflict(new { message = "Email already exists." });
+            }
+
             _context.Staff.Add(staff);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetStaff", new { id = staff.StaffId }, staff);
         }
+
 
         // DELETE: api/Staffs/5
         [HttpDelete("{id}")]
